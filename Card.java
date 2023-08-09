@@ -35,7 +35,7 @@ public class Card {
         return value;
     }
 
-    public int getNext() {
+    public Card getNext() {
         return nextCard;
     }
 
@@ -78,7 +78,7 @@ public class Card {
                 card += "Diamonds";
                 break;
             default:
-                card += "Invalid suit!"
+                card += "Invalid suit!";
         }
         return card;
     }
