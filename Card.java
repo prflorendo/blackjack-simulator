@@ -4,7 +4,7 @@ public class Card {
     private Card nextCard;
 
     public Card() {
-        suit = 0;
+        suit = 1;
         value = 1;
         nextCard = null;
     }
@@ -65,16 +65,16 @@ public class Card {
         card += " of ";
 
         switch (getSuit()) {
-            case 0:
+            case 1:
                 card += "Spades";
                 break;
-            case 1:
+            case 2:
                 card += "Clubs";
                 break;
-            case 2:
+            case 3:
                 card += "Hearts";
                 break;
-            case 3:
+            case 4:
                 card += "Diamonds";
                 break;
             default:
