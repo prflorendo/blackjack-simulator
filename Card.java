@@ -82,4 +82,23 @@ public class Card {
         }
         return card;
     }
+
+    public int compareTo(Card compareCard) {
+        if (getSuit() == compareCard.getSuit()) {
+            return getValue() - compareCard.getValue();
+        }
+        return getSuit() - compareCard.getSuit();
+    }
+
+    public boolean equals(Card compareCard) {
+        return compareTo(compareCard) == 0;
+    }
+
+    public int compareValue(Card compareCard) {
+        return getValue() - compareCard.getValue();
+    }
+
+    public boolean equalsValue(Card compareCard) {
+        return compareValue(compareCard) == 0;
+    }
 }
