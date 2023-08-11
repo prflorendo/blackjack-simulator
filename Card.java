@@ -49,13 +49,13 @@ public class Card {
         int suit = getSuit();
 
         if (value == 1) {
-            card += "Ace";
+            card += "A";
         } else if (value == 11) {
-            card += "Jack";
+            card += "J";
         } else if (value == 12) {
-            card += "Queen";
+            card += "Q";
         } else if (value == 13) {
-            card += "King";
+            card += "K";
         } else if (value <= 10) {
             card += value;
         } else {
@@ -64,7 +64,7 @@ public class Card {
 
         card += " of ";
 
-        switch (getSuit()) {
+        switch (suit) {
             case 1:
                 card += "Spades";
                 break;
