@@ -28,4 +28,11 @@ public class Player {
     public Hand getHand() {
         return hand;
     }
+
+    public void split(Hand hand) {
+        Hand splitHand = new Hand(hand.getCards().getNext());
+        hand.getCards().setNext(null);
+
+        hand.setNext(splitHand);
+    }
 }
