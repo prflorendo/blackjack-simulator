@@ -2,6 +2,7 @@ import java.util.Random;
 public class Deck {
     private Card topCard;
     private Card bottomCard;
+    int numCards;
 
     public Deck() {
         for (int suit = 1; suit <= 4; suit++) {
@@ -16,6 +17,7 @@ public class Deck {
                 }
             }
         }
+        numCards = 52;
     }
     
     public Card getTopCard() {
@@ -99,5 +101,22 @@ public class Deck {
         }
 
         return str;
+    }
+
+    public Card dealCard() {
+        Card dealtCard = topCard;
+
+        topCard = topCard.getNext();
+        setNumCards(numCards - 1);
+
+        return dealtCard;
+    }
+
+    public int getNumCards() {
+        return numCards;
+    }
+
+    public void setNumCards(int numCards) {
+        this.numCards = numCards;
     }
 }
