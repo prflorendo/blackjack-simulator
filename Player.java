@@ -1,42 +1,31 @@
 public class Player {
-    Card hand;
-    int handValue;
-    boolean hasAce;
+    Hand hand;
 
     public Player() {
         newHand();
     }
 
     public void newHand() {
-        hand = null;
-        handValue = 0;
-        hasAce = false;
+        hand = new Hand();
     }
 
     public void hit(Card newCard) {
-        newCard.setNext(hand);
-        hand = newCard;
+        newCard.setNext(hand.getCards());
+        hand.setCards(newCard);
 
         int value = newCard.getValue();
 
         if (value == 1) {
-            hasAce = true;
-            handValue += 11;
+            hand.drawAce();
+            hand.addValue(11);
         } else if (value > 10) {
-            handValue += 10;
+            hand.addValue(10);;
         } else {
-            handValue += value;
+            hand.addValue(value);
         }
     }
 
-    public int getHandValue() {
-        if (handValue > 21 && hasAce) {
-            return handValue - 10;
-        }
-        return handValue;
-    }
-
-    public boolean busted() {
-        return getHandValue() > 21;
+    public Hand getHand() {
+        return hand;
     }
 }
