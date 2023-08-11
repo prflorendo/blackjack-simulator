@@ -1,21 +1,22 @@
 import java.util.Random;
 public class Shoe extends Deck {
-    final int numDecks;
+    final int NUM_DECKS;
 
     public Shoe() {
         super();
-        numDecks = 6;
-        for (int i = 1; i < numDecks; i++) {
+        NUM_DECKS = 6;
+        for (int i = 1; i < NUM_DECKS; i++) {
             Deck iDeck = new Deck();
             getBottomCard().setNext(iDeck.getTopCard());
             setBottomCard(iDeck.getBottomCard());
         }
+        setNumCards(52 * NUM_DECKS);
     }
 
-    public Shoe(int numDecks) {
+    public Shoe(int NUM_DECKS) {
         super();
-        this.numDecks = 6;
-        for (int i = 1; i < numDecks; i++) {
+        this.NUM_DECKS = 6;
+        for (int i = 1; i < NUM_DECKS; i++) {
             Deck iDeck = new Deck();
             getBottomCard().setNext(iDeck.getTopCard());
             setBottomCard(iDeck.getBottomCard());
@@ -23,15 +24,7 @@ public class Shoe extends Deck {
     }
 
     public int getNumDecks() {
-        return numDecks;
-    }
-
-    public void shuffle() {
-        shuffle(new Random());
-    }
-
-    public void shuffle(int seed) {
-        shuffle(new Random(seed));
+        return NUM_DECKS;
     }
 
     private void shuffle(Random randomGenerator) {
@@ -45,10 +38,18 @@ public class Shoe extends Deck {
         toLinkedList(arrayDeck);
     }
 
+    public void shuffle() {
+        shuffle(new Random());
+    }
+
+    public void shuffle(int seed) {
+        shuffle(new Random(seed));
+    }
+
     public Card[] toArray() {
         System.out.println("boobs");
         Card currentCard = getTopCard();
-        Card[] arrayDeck = new Card[52 * numDecks];
+        Card[] arrayDeck = new Card[52 * NUM_DECKS];
         int index = 0;
 
         while (currentCard != null) {
