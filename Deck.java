@@ -68,13 +68,13 @@ public class Deck {
         return arrayDeck;
     }
 
-    private void swap(Card[] arrayDeck, int a, int b) {
+    protected void swap(Card[] arrayDeck, int a, int b) {
         Card swapCard = arrayDeck[a];
         arrayDeck[a] = arrayDeck[b];
         arrayDeck[b] = swapCard;
     }
 
-    private void toLinkedList(Card[] arrayDeck) {
+    protected void toLinkedList(Card[] arrayDeck) {
         Card currentCard = arrayDeck[0];
         topCard = currentCard;
 
