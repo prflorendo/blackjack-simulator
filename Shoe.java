@@ -1,7 +1,18 @@
 import java.util.Random;
+/**
+ * The shoe class represents a shoe, which is a typically a combination of 6-8
+ * decks.
+ * 
+ * @author prflorendo
+ * @version 8/11/2023
+ */
 public class Shoe extends Deck {
     final int NUM_DECKS;
 
+    /**
+     * Constructs a new shoe object by constructing 6 decks and linking them 
+     * together
+     */
     public Shoe() {
         super();
         NUM_DECKS = 6;
@@ -13,6 +24,10 @@ public class Shoe extends Deck {
         setNumCards(52 * NUM_DECKS);
     }
 
+    /**
+     * Constructs a new shoe with the given number of decks
+     * @param NUM_DECKS The desired number of decks
+     */
     public Shoe(int NUM_DECKS) {
         super();
         this.NUM_DECKS = 6;
@@ -23,10 +38,18 @@ public class Shoe extends Deck {
         }
     }
 
+    /**
+     * Returns the number of decks in the shoe
+     * @return the number of decks in the shoe
+     */
     public int getNumDecks() {
         return NUM_DECKS;
     }
 
+    /**
+     * Uses a modified version of Fisher-Yates to shuffle the shoe
+     * @param randomGenerator the seed passed by the public call
+     */
     private void shuffle(Random randomGenerator) {
         Card[] arrayDeck = toArray();
 
@@ -38,18 +61,27 @@ public class Shoe extends Deck {
         toLinkedList(arrayDeck);
     }
 
+    /**
+     * Shuffles the shoe using a random seed
+     */
     public void shuffle() {
         shuffle(new Random());
     }
 
+    /**
+     * Shuffles the shoe using the given seed
+     */
     public void shuffle(int seed) {
         shuffle(new Random(seed));
     }
 
+    /**
+     * Converts the linked list of cards into its array representation
+     * @return The array representation of the shoe
+     */
     public Card[] toArray() {
-        System.out.println("boobs");
         Card currentCard = getTopCard();
-        Card[] arrayDeck = new Card[52 * NUM_DECKS];
+        Card[] arrayDeck = new Card[getNumCards() * NUM_DECKS];
         int index = 0;
 
         while (currentCard != null) {
